@@ -1,14 +1,17 @@
 package main 
 
-import (
-    "fmt"
-)
+func CheckPalindrome(s string) bool {
 
-def CheckPalindrome(s string) bool{
     var pal = []rune(s)
     var mid = len(pal)/2
-    for i := 0, j := len(pal)-1; i < mid; i++, j-- {
-       if j <= i { return true }
-       else if !(pal[i] == pal[j]) { return false }
+
+    for i, j := 0, len(pal); i < mid; i++ {
+        j--
+        if j <= i { 
+            return true 
+        } else if !(pal[i] == pal[j]) { 
+            return false 
+        }
     }
+    return true
 }
