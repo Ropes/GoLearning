@@ -1,4 +1,4 @@
-package main 
+package palindromes
 
 func CheckPalindrome(s string) bool {
 

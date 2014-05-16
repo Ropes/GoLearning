@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "github.com/ropes/palindromes"
 
 func main(){
     uno := "test"
