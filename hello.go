@@ -1,8 +1,7 @@
-package hello
+package main
 
 import "fmt"
-import "github.com/ropes/goLearning/palindrome"
 
 func main(){
-    fmt.Printf("Hellow!!! I like Go's install so far!  Very straitforward!\n")
+    fmt.Println("Hellow!!! I like Go's install so far!  Very straitforward!")
 }
