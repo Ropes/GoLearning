@@ -1,11 +1,11 @@
-package main
+package primitives
 
 import ( 
     "fmt"
     "math"
 )
 
-func main(){
+func Declares(){
     var x, y int = 5, 9
     var f float64 = math.Sqrt(float64(x*x + y*y))
 
@@ -13,5 +13,8 @@ func main(){
     //The type will be infered
     z := int(f)
 
-    fmt.Println(x, y, z)
+    for i := 1; i < 10; i++{
+        z += i
+        fmt.Println(x, y, z)
+    }
 }
