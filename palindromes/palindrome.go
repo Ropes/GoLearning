@@ -15,3 +15,17 @@ func CheckPalindrome(s string) bool {
     }
     return true
 }
+
+func RecChk(s []rune) bool {
+    if len(s) <= 1 {
+        return true
+    } else {
+        return s[0] == s[len(s)-1] && RecChk(s[1:len(s)-1])
+    }
+}
+
+func RecPalindrome(str string) bool {
+    s := []rune(str)
+    return RecChk(s)
+}
+

@@ -2,7 +2,6 @@ package palindromes
 
 import (
     "testing"
-    "fmt"
 )
 
 type TData struct { 
@@ -22,6 +21,13 @@ func TestPalindromes(t *testing.T) {
         got := CheckPalindrome(c.chk)
         if got != c.want {
             t.Errorf("Palindrome[%q == %q], should be: %q", c.chk, got, c.want)
+        }
+    }
+
+    for _, c := range test_data {
+        got := RecPalindrome(c.chk)
+        if got != c.want {
+            t.Errorf("Recursive Palindrome[%q == %q], should be: %q", c.chk, got, c.want)
         }
     }
 }
