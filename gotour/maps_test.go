@@ -35,4 +35,7 @@ func TestMapContents(t *testing.T){
     }
 }
 
+func TestWC(t *testing.T){
+    TestWordCount(WordCount)
+}
 
