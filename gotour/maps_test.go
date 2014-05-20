@@ -14,7 +14,7 @@ func TestMaps(t *testing.T) {
 
     x := Carins["PDX"]
     if x.Lat != 45.523204 {
-        t.Errorf("Lat not saved correctly %q", x.Lat)
+        t.Errorf("Lat not saved correctly %E", x.Lat)
     }
 }
 
@@ -23,12 +23,7 @@ func TestMapContents(t *testing.T){
     Carins["PDX"] = Vertex{
         45.523204, -122.671324,
     }
-    
-    /*v, ok
-    v, ok := Carins["SEA"]
-    fmt.Println(v, ok)
-    */
-    
+
     _, ok := Carins["SEA"]
     if ok != false {
         t.Errorf("SEA never defined!??! Should not be present")
