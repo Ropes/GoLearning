@@ -19,3 +19,11 @@ func Pic(dx, dy int) [][]uint8 {
     return cols
 }
 
+func Fibonacci() func() int {
+    nm1 := 1
+    nm2 := 0
+    return func() int {
+                nm1, nm2 = nm1 + nm2, nm1
+                return nm1
+            }
+}
