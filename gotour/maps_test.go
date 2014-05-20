@@ -6,7 +6,7 @@ import (
 )
 
 func TestMaps(t *testing.T) {
-    Carins = make(map[string]Vertex)    
+    Carins = make(map[string]Vertex)
     Carins["PDX"] = Vertex{
         45.523204, -122.671324,
     }
@@ -17,3 +17,22 @@ func TestMaps(t *testing.T) {
         t.Errorf("Lat not saved correctly %q", x.Lat)
     }
 }
+
+func TestMapContents(t *testing.T){
+    Carins = make(map[string]Vertex)
+    Carins["PDX"] = Vertex{
+        45.523204, -122.671324,
+    }
+    
+    /*v, ok
+    v, ok := Carins["SEA"]
+    fmt.Println(v, ok)
+    */
+    
+    _, ok := Carins["SEA"]
+    if ok != false {
+        t.Errorf("SEA never defined!??! Should not be present")
+    }
+}
+
+
