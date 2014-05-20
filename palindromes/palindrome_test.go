@@ -15,7 +15,9 @@ var test_data = []TData {
     {"101", true},
     {"at", false},
 }
-func PalindromesIter(t *testing.T) {
+
+//Iterative tests
+func TestPalindromesIter(t *testing.T) {
     for _, c := range test_data {
         got := CheckPalindrome(c.chk)
         if got != c.want {
@@ -31,6 +33,16 @@ func BenchmarkPalindromesIter(t *testing.B) {
             if got != c.want {
                 t.Errorf("Palindrome[%q == %q], should be: %q", c.chk, got, c.want)
             }
+        }
+    }
+}
+
+//Recursive Tests
+func TestPalindromesRec(t *testing.T) {
+    for _, c := range test_data {
+        got := RecPalindrome(c.chk)
+        if got != c.want {
+            t.Errorf("Recursive Palindrome[%q == %q], should be: %q", c.chk, got, c.want)
         }
     }
 }
