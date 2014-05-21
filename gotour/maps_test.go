@@ -48,13 +48,16 @@ func TestMyType(t *testing.T){
 
 func TestVertexInterface(t *testing.T){
 
-    x := Vertex{-1, -2}
-    y := Vertex{-3, 5}
+    x := &Vertex{-1, -2}
+    y := &Vertex{-3, 5}
 
-    //var a Vtex
-    //a := &x
+    var a Vtex
+    a = x
 
-    mid := x.Midpoint(&y)
+    mid := a.Midpoint(y)
     fmt.Println(mid)
+    if mid.Lat != -2.0 || mid.Lon != 1.5{
+        t.Errorf("Midpoint Vertex incorrect! %q", mid)
+    }
 }
 

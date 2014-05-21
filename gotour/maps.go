@@ -6,8 +6,8 @@ import (
 )
 
 type Vtex interface {
-    UselessAbs()
-    Midpoint(y *Vertex)
+    UselessAbs() float64
+    Midpoint(y *Vertex) Vertex
 }
 
 type Vertex struct{
