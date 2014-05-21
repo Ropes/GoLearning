@@ -5,12 +5,21 @@ import (
     "math"
 )
 
+type Vtex interface {
+    UselessAbs()
+    Midpoint(y *Vertex)
+}
+
 type Vertex struct{
     Lat, Lon float64
 }
 
-func UselessAbs(v *Vertex) float64 {
+func (v Vertex) UselessAbs() float64 {
     return math.Sqrt(v.Lat * v.Lat + v.Lon * v.Lon)
+}
+
+func (v *Vertex) Midpoint (y *Vertex) Vertex {
+    return Vertex{(v.Lat + y.Lat)/2.0, (v.Lon + y.Lon)/2.0}
 }
 
 //Init: m = make(map[string]Vertex)

@@ -46,3 +46,15 @@ func TestMyType(t *testing.T){
     }
 }
 
+func TestVertexInterface(t *testing.T){
+
+    x := Vertex{-1, -2}
+    y := Vertex{-3, 5}
+
+    //var a Vtex
+    //a := &x
+
+    mid := x.Midpoint(&y)
+    fmt.Println(mid)
+}
+
