@@ -34,3 +34,15 @@ func TestWC(t *testing.T){
     TestWordCount(WordCount)
 }
 
+func TestMyType(t *testing.T){
+    m := make(MyMap)
+    m["PDX"] = Vertex{
+        45.523204, -122.671324,
+    }
+    pdx := m.ShowPDX()
+    fmt.Println("PDX Vertex returned from Type Function: %q", pdx)
+    if pdx.Lat != 45.523204 {
+        t.Errorf("PDX never defined!??! Should be present")
+    }
+}
+
