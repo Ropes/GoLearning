@@ -18,6 +18,23 @@ func Pic(dx, dy int) [][]uint8 {
 
     return cols
 }
+func Abs(x float64) float64 {
+    if x < 0.0{
+        return -x
+    }
+    return x
+}
+
+func Sqrt(x float64) float64 {
+    z := 1.0
+    delta := 100000000.0
+    for delta > 0.00001 {
+        znew := z - (((z*z) - x)/(2*z))
+        delta = Abs(znew - z)
+        z = znew
+    }
+    return z
+}
 
 func Fibonacci() func() int {
     nm1 := 1
