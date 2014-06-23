@@ -1,16 +1,16 @@
 package anagrams
 
-import(
-    "testing"
+import (
+	"testing"
 )
 
+func TestLengthChk(t *testing.T) {
+	x := "hihi"
+	y := "hihii"
+	z := "ihih"
 
-func TestLengthChk(t* testing.T){
-    x := "hihi"
-    y := "hihii"
-
-    result := Anagram1(x, y)
-    if result == true{
-        t.Errorf("Strings of different length but true returned")
-    }
+	result := LenCheck(x, y)
+	if result == true {
+		t.Errorf("Strings of different length but true returned")
+	}
 }
