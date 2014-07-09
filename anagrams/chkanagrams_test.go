@@ -39,3 +39,13 @@ func TestRuneSliceSort2(t *testing.T) {
 		t.Errorf("Word wasn't sorted properly: %s", result)
 	}
 }
+
+func TestAnagram1(t *testing.T) {
+	x := "heater"
+	y := "reheat"
+
+	result := Anagram1(x, y)
+	if result == false {
+		t.Error("Anagram not detected correctly")
+	}
+}

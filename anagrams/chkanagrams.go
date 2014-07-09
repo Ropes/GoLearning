@@ -37,7 +37,20 @@ func Anagram1(x string, y string) bool {
 	if LenCheck(x, y) {
 		//Continue anagram check
 		//TODO: map characters
-
+		amap_x := SortWord(x)
+		amap_y := SortWord(y)
+		if amap_x == amap_y {
+			return true
+		}
 	}
 	return false
 }
+
+/*
+func AnagramList(words []string) map[string][]string {
+	anagrams = make(map[string][]string)
+	for _, w := range words {
+
+	}
+}
+*/
