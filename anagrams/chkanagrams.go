@@ -1,7 +1,9 @@
 package anagrams
 
 import (
+	"io/ioutil"
 	"sort"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -48,6 +50,16 @@ func Anagram1(x string, y string) bool {
 		}
 	}
 	return false
+}
+
+func ReadSystemWords() ([]string, error) {
+	path := "/usr/share/dict/words"
+	contents, err := ioutil.ReadFile(path)
+	if err != nil {
+		panic(err)
+		return nil, err
+	}
+	return strings.Split(string(contents), "\n"), nil
 }
 
 /*

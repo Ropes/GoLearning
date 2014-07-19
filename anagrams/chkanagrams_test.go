@@ -1,8 +1,6 @@
 package anagrams
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestLengthChk(t *testing.T) {
 	x := "hihi"
@@ -47,5 +45,16 @@ func TestAnagram1(t *testing.T) {
 	result := Anagram1(x, y)
 	if result == false {
 		t.Error("Anagram not detected correctly")
+	}
+}
+
+func TestReadWords(t *testing.T) {
+	words, err := ReadSystemWords()
+	if err != nil {
+		t.Log("No error reading word list")
+	}
+	t.Log(words[:5])
+	if len(words) < 90000 {
+		t.Errorf("Words not read from dictionary successfully")
 	}
 }
