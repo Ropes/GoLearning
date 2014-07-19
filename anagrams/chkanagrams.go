@@ -5,6 +5,7 @@ import (
 	"unicode/utf8"
 )
 
+//RuneSlice type attaches functions to allow sorting of runes
 type RuneSlice []rune
 
 func (rs RuneSlice) Len() int {
@@ -19,6 +20,7 @@ func (rs RuneSlice) Swap(i, j int) {
 	rs[i], rs[j] = rs[j], rs[i]
 }
 
+//LenCheck returns true if strings are of equal length, else false
 func LenCheck(x string, y string) bool {
 	if len(x) == len(y) {
 		return true
@@ -26,6 +28,7 @@ func LenCheck(x string, y string) bool {
 	return false
 }
 
+//SortWord takes a string and returns its characters sorted as a string
 func SortWord(word string) string {
 	w := []rune(word)
 	rs := RuneSlice(w)
@@ -33,13 +36,14 @@ func SortWord(word string) string {
 	return string(rs)
 }
 
+//Anagram1 sorts the characters of two given strings and returns true if they match
 func Anagram1(x string, y string) bool {
 	if LenCheck(x, y) {
 		//Continue anagram check
 		//TODO: map characters
-		amap_x := SortWord(x)
-		amap_y := SortWord(y)
-		if amap_x == amap_y {
+		amapX := SortWord(x)
+		amapY := SortWord(y)
+		if amapX == amapY {
 			return true
 		}
 	}
