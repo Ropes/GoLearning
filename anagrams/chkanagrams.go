@@ -2,8 +2,10 @@ package anagrams
 
 import (
 	"io/ioutil"
+	"math/rand"
 	"sort"
 	"strings"
+	"time"
 	"unicode/utf8"
 )
 
@@ -60,6 +62,29 @@ func ReadSystemWords() ([]string, error) {
 		return nil, err
 	}
 	return strings.Split(string(contents), "\n"), nil
+}
+
+//AnagramMap holds construct of sorted characters of anagrams to all the possible words in the 'mapping' field
+type AnagramMap struct {
+	mapping map[string][]string
+}
+
+//AnagramOfWord takes a word and returns a separate anagram of it
+func (a *AnagramMap) AnagramOfWord(word string) string {
+	wordKey := SortWord(word)
+	list := a.mapping[wordKey]
+	if len(list) <= 1 {
+		return word
+	} else {
+		t := time.Now()
+		r := rand.New(rand.NewSource(t.UnixNano()))
+		for {
+			w := list[r.Intn(len(list))]
+			if w != word {
+				return w
+			}
+		}
+	}
 }
 
 func AnagramList(words []string) map[string][]string {

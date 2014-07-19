@@ -69,5 +69,30 @@ func TestAnagramList(t *testing.T) {
 		t.Log(anagrams["acr"])
 		t.Errorf("Number of anagram combinations dubiously low for number of words..")
 	}
-	//fmt.Println(anagrams["aflt"])
+	/*
+		for k, v := range anagrams {
+			if len(v) > 2 {
+				fmt.Println(k, v)
+			}
+		}
+		fmt.Println(anagrams["aflt"])
+	*/
+}
+
+func TestAnagramMap(t *testing.T) {
+	words, err := ReadSystemWords()
+	if err != nil {
+		t.Log("No error reading word list")
+	}
+	anagrams := AnagramList(words)
+
+	AM := &AnagramMap{mapping: anagrams}
+	word := "ropes"
+	ana := AM.AnagramOfWord(word)
+	if ana == word {
+		t.Log(ana, word)
+		t.Errorf("Words should not be equivalent!")
+	}
+	//fmt.Println(ana)
+
 }
