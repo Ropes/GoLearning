@@ -62,11 +62,11 @@ func ReadSystemWords() ([]string, error) {
 	return strings.Split(string(contents), "\n"), nil
 }
 
-/*
 func AnagramList(words []string) map[string][]string {
-	anagrams = make(map[string][]string)
+	anagrams := make(map[string][]string)
 	for _, w := range words {
-
+		wordKey := SortWord(w)
+		anagrams[wordKey] = append(anagrams[wordKey], w)
 	}
+	return anagrams
 }
-*/

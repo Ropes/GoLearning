@@ -58,3 +58,16 @@ func TestReadWords(t *testing.T) {
 		t.Errorf("Words not read from dictionary successfully")
 	}
 }
+
+func TestAnagramList(t *testing.T) {
+	words, err := ReadSystemWords()
+	if err != nil {
+		t.Log("No error reading word list")
+	}
+	anagrams := AnagramList(words)
+	if len(anagrams) < 5000 {
+		t.Log(anagrams["acr"])
+		t.Errorf("Number of anagram combinations dubiously low for number of words..")
+	}
+	//fmt.Println(anagrams["aflt"])
+}
