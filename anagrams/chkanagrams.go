@@ -87,6 +87,14 @@ func (a *AnagramMap) AnagramOfWord(word string) string {
 	}
 }
 
+func (a *AnagramMap) AnagramSentence(sent []string) []string {
+	var ret []string
+	for _, s := range sent {
+		ret = append(ret, a.AnagramOfWord(s))
+	}
+	return ret
+}
+
 func AnagramList(words []string) map[string][]string {
 	anagrams := make(map[string][]string)
 	for _, w := range words {

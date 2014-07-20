@@ -1,6 +1,9 @@
 package anagrams
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestLengthChk(t *testing.T) {
 	x := "hihi"
@@ -95,4 +98,18 @@ func TestAnagramMap(t *testing.T) {
 	}
 	//fmt.Println(ana)
 
+	word = "jjjjjjjj"
+	ana = AM.AnagramOfWord(word)
+	if ana != word {
+		fmt.Printf("returned word: %s\n", ana)
+		t.Errorf("There is no word that is all 'j's...")
+	}
+
+	sentence := [...]string{"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
+	s := sentence[:]
+	anasent := AM.AnagramSentence(s)
+	if anasent[len(anasent)-1] != "god" {
+		fmt.Printf("returned sentence: %#v\n", anasent)
+		t.Errorf("'god' should be replaced with a 'dog'")
+	}
 }
